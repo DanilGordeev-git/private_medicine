@@ -1,0 +1,371 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Клиники{% endblock %}
+
+{% block content %}
+    <div id="pmc-about-container">
+        <!-- Левая часть с текстом -->
+        <div id="pmc-about-text">
+            <h1>Наши клиники</h1>
+            <h2>Главная > Клиники</h2>
+            <p>Наши клиники открываются по всему снг каждый год, на данный момент наши клиники есть в таких городах как:
+                Москва, Уфа, Сочи, Иркутск, Самара.
+                В каждом из этих городов наших клиник около 300 филиалов данные о количистве клиник в вашем городе
+                смотрите на странице клиник вашего города.</p>
+
+            <p>В наших будущих планах такие города как Владивосток, Чита, Якутск, Владимир, Краснодар, Ростов на дону,
+                Орел, Курск, Омск, Хабаровск и т.д.</p>
+
+            <p>Открытие нашей клиники в вашем городе зависит только от вас, голосуйте на сайте госуслуги за открытие
+                PrivateMedicine Clinic в вашем городе. Чем больше голосов соберется за год тем быстрее в вашем городе
+                появятся наши клиники. </p>
+
+            <p>Постройте дорогу к вашему здоровью своими руками!</p>
+
+            <div class="advantages">
+            </div>
+        </div>
+
+        <!-- Правая часть с картинкой -->
+        <div id="pmc-about-image">
+            <img src="{% static 'main/images/imageabout.svg' %}" alt="Клиника">
+        </div>
+    </div>
+
+    <!-- ПАНЕЛЬ РЕЙТИНГ 5 ЗВЕЗД -->
+    <div class="rating-footer">
+        <div class="container">
+            <div class="rating-info compact-rating">
+                <span class="stars">
+                <img src="{% static 'main/images/star.svg' %}" alt="Звезда" class="star">
+                <img src="{% static 'main/images/star.svg' %}" alt="Звезда" class="star">
+                <img src="{% static 'main/images/star.svg' %}" alt="Звезда" class="star">
+                <img src="{% static 'main/images/star.svg' %}" alt="Звезда" class="star">
+                <img src="{% static 'main/images/star.svg' %}" alt="Звезда" class="star">
+            </span>
+                <span class="rating-text">5</span>
+                <span class="rating-stars-text">звезд</span>
+                <img src="{% static 'main/images/doctify.svg' %}" alt="Doctify" class="doctify-logo">
+            </div>
+        </div>
+    </div>
+
+    <!-- Раздел "Расположение клиник" -->
+    <section class="clinic-locations">
+        <div class="container">
+            <!-- Заголовок -->
+            <h2 class="section-title">РАСПОЛОЖЕНИЕ КЛИНИК</h2>
+
+            <!-- Карточки клиник -->
+            <div class="clinic-cards-container">
+                <div class="clinic-card">
+                    <a href="{% url 'moscow' %}">
+                        <img src="{% static 'main/images/moscow-clinic.jpg' %}">
+                        <div class="clinic-content">
+                            <h3 class="clinic-title">МОСКВА, ЛЮБЕРЦЫ</h3>
+                            <p class="clinic-address">Некрасовская 78А д3 стр. 4</p>
+                        </div>
+                    </a>
+                </div>
+                <!-- Чита -->
+                <div class="clinic-card">
+                    <a href="{% url 'chita' %}" class="clinic-link">
+                        <img src="{% static 'main/images/chita-clinic.jpg' %}" class="clinic-img"
+                             alt="Чита, Сувенирные клиники">
+                        <div class="clinic-content">
+                            <h3 class="clinic-title">ЧИТА, СУВЕНИРЫ</h3>
+                            <p class="clinic-address">Ленина 121</p>
+                        </div>
+                    </a>
+                </div>
+                <!-- Самара -->
+                <div class="clinic-card">
+                    <a href="{% url 'samara' %}" class="clinic-link">
+                        <img src="{% static 'main/images/samara-clinic.jpg' %}" class="clinic-img"
+                             alt="Самара, Пушкинские клиники">
+                        <div class="clinic-content">
+                            <h3 class="clinic-title">САМАРА, ПУШКИНСКАЯ</h3>
+                            <p class="clinic-address">Пушкинская 231 д7</p>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Сочи -->
+                <div class="clinic-card">
+                    <a href="{% url 'sochi' %}" class="clinic-link">
+                        <img src="{% static 'main/images/sochi-clinic.jpg' %}" class="clinic-img"
+                             alt="Сочи, Гагаринские клиники">
+                        <div class="clinic-content">
+                            <h3 class="clinic-title">СОЧИ, ГАГАРИНА</h3>
+                            <p class="clinic-address">Гагарина 25</p>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Новосибирск -->
+                <div class="clinic-card">
+                    <div class="clinic-link">
+                        <img src="{% static 'main/images/coming-soon1.jpg' %}" class="clinic-img" alt="Новосибирск">
+                        <div class="clinic-content">
+                            <h3 class="clinic-title">НОВОСИБИРСК</h3>
+                            <p class="clinic-address">Откроется в 2026 году</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Екатеринбург -->
+                <div class="clinic-card">
+                    <div class="clinic-link">
+                        <img src="{% static 'main/images/coming-soon1.jpg' %}" class="clinic-img" alt="Екатеринбург">
+                        <div class="clinic-content">
+                            <h3 class="clinic-title">ЕКАТЕРИНБУРГ</h3>
+                            <p class="clinic-address">Откроется в 2026 году</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    <!-- Раздел "Партнеры" -->
+    <section class="partners">
+        <div class="container">
+            <h2 class="section-title">ПАРТНЕРЫ</h2>
+            <div class="partner-logos">
+                <!-- Логотипы партнеров -->
+                <img src="{% static 'main/images/mdu-logo.svg' %}" alt="MDU" class="partner-logo">
+                <img src="{% static 'main/images/rcgp-logo.svg' %}" alt="Royal College of General Practitioners"
+                     class="partner-logo">
+                <img src="{% static 'main/images/cqc-logo.svg' %}" alt="Care Quality Commission" class="partner-logo">
+                <img src="{% static 'main/images/iscas-logo.svg' %}" alt="ISCAS" class="partner-logo">
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Раздел "Отзывы клиентов" -->
+    <section class="client-reviews">
+        <div class="container">
+            <!-- Навигационная метка -->
+            <span class="section-marker">Отзывы</span>
+
+            <!-- Заголовок -->
+            <h2 class="section-title">ДОВЕРИЕ ПАЦИЕНТОВ</h2>
+
+            <!-- Общий рейтинг -->
+            <div class="overall-rating">
+                <span class="rating-text">Общий рейтинг:</span>
+                <span class="stars">
+                <img src="{% static 'main/images/star.svg' %}" alt="Звезда">
+                <img src="{% static 'main/images/star.svg' %}" alt="Звезда">
+                <img src="{% static 'main/images/star.svg' %}" alt="Звезда">
+                <img src="{% static 'main/images/star.svg' %}" alt="Звезда">
+                <img src="{% static 'main/images/star.svg' %}" alt="Звезда">
+            </span>
+                <span class="rating-value">4.9</span>
+                <span class="reviews-count">(301)</span>
+            </div>
+
+            <!-- Карточки отзывов -->
+            <div class="review-cards">
+                <!-- Отзыв 1 -->
+                <div class="review-card">
+                    <div class="avatar">
+                        <img src="{% static 'main/images/avatar.svg' %}" alt="Аватар">
+                    </div>
+                    <div class="review-info">
+                        <div class="user-details">
+                            <span class="username">Иван Шацкий</span>
+                            <span class="review-date">3 дня назад</span>
+                        </div>
+                        <div class="stars">
+                            <img src="{% static 'main/images/star.svg' %}" alt="Звезда">
+                            <img src="{% static 'main/images/star.svg' %}" alt="Звезда">
+                            <img src="{% static 'main/images/star.svg' %}" alt="Звезда">
+                            <img src="{% static 'main/images/star.svg' %}" alt="Звезда">
+                            <img src="{% static 'main/images/star.svg' %}" alt="Звезда">
+                        </div>
+                        <p class="review-text">
+                            Хотелось бы выразить признательность Юрию и Ирине за то, что они привнесли чувство
+                            юмора в то,
+                            что обычно является стрессовым опытом посещения клиники.
+                        </p>
+                        <a href="#" class="read-more">Read more</a>
+                    </div>
+                </div>
+
+                <!-- Отзыв 2 -->
+                <div class="review-card">
+                    <div class="avatar">
+                        <img src="{% static 'main/images/avatar2.svg' %}" alt="Аватар">
+                    </div>
+                    <div class="review-info">
+                        <div class="user-details">
+                            <span class="username">Мария Петрова</span>
+                            <span class="review-date">5 дней назад</span>
+                        </div>
+                        <div class="stars">
+                            <img src="{% static 'main/images/star.svg' %}" alt="Звезда">
+                            <img src="{% static 'main/images/star.svg' %}" alt="Звезда">
+                            <img src="{% static 'main/images/star.svg' %}" alt="Звезда">
+                            <img src="{% static 'main/images/star.svg' %}" alt="Звезда">
+                            <img src="{% static 'main/images/star.svg' %}" alt="Звезда">
+                        </div>
+                        <p class="review-text">
+                            Быстро, качественно и профессионально! Рекомендую эту клинику всем, кто ценит свое
+                            время и здоровье.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Отзыв 3 -->
+                <div class="review-card">
+                    <div class="avatar">
+                        <img src="{% static 'main/images/avatar3.svg' %}" alt="Аватар">
+                    </div>
+                    <div class="review-info">
+                        <div class="user-details">
+                            <span class="username">Андрей Кузнецов</span>
+                            <span class="review-date">1 неделя назад</span>
+                        </div>
+                        <div class="stars">
+                            <img src="{% static 'main/images/star.svg' %}" alt="Звезда">
+                            <img src="{% static 'main/images/star.svg' %}" alt="Звезда">
+                            <img src="{% static 'main/images/star.svg' %}" alt="Звезда">
+                            <img src="{% static 'main/images/star.svg' %}" alt="Звезда">
+                            <img src="{% static 'main/images/star.svg' %}" alt="Звезда">
+                        </div>
+                        <p class="review-text">
+                            Очень внимательные врачи, которые действительно заботятся о пациентах. Спасибо за
+                            поддержку!
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Отзыв 4 -->
+                <div class="review-card">
+                    <div class="avatar">
+                        <img src="{% static 'main/images/avatar4.svg' %}" alt="Аватар">
+                    </div>
+                    <div class="review-info">
+                        <div class="user-details">
+                            <span class="username">Ольга Смирнова</span>
+                            <span class="review-date">2 недели назад</span>
+                        </div>
+                        <div class="stars">
+                            <img src="{% static 'main/images/star.svg' %}" alt="Звезда">
+                            <img src="{% static 'main/images/star.svg' %}" alt="Звезда">
+                            <img src="{% static 'main/images/star.svg' %}" alt="Звезда">
+                            <img src="{% static 'main/images/star.svg' %}" alt="Звезда">
+                            <img src="{% static 'main/images/star.svg' %}" alt="Звезда">
+                        </div>
+                        <p class="review-text">
+                            Клиника просто отличная! Всё чисто, уютно, а персонал очень доброжелательный.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Отзыв 5 -->
+                <div class="review-card">
+                    <div class="avatar">
+                        <img src="{% static 'main/images/avatar5.svg' %}" alt="Аватар">
+                    </div>
+                    <div class="review-info">
+                        <div class="user-details">
+                            <span class="username">Дмитрий Лебедев</span>
+                            <span class="review-date">1 месяц назад</span>
+                        </div>
+                        <div class="stars">
+                            <img src="{% static 'main/images/star.svg' %}" alt="Звезда">
+                            <img src="{% static 'main/images/star.svg' %}" alt="Звезда">
+                            <img src="{% static 'main/images/star.svg' %}" alt="Звезда">
+                            <img src="{% static 'main/images/star.svg' %}" alt="Звезда">
+                            <img src="{% static 'main/images/star.svg' %}" alt="Звезда">
+                        </div>
+                        <p class="review-text">
+                            Спасибо за качественную диагностику и подробное объяснение результатов. Буду
+                            рекомендовать друзьям!
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Отзыв 6 -->
+                <div class="review-card">
+                    <div class="avatar">
+                        <img src="{% static 'main/images/avatar6.svg' %}" alt="Аватар">
+                    </div>
+                    <div class="review-info">
+                        <div class="user-details">
+                            <span class="username">Екатерина Михайлова</span>
+                            <span class="review-date">2 месяца назад</span>
+                        </div>
+                        <div class="stars">
+                            <img src="{% static 'main/images/star.svg' %}" alt="Звезда">
+                            <img src="{% static 'main/images/star.svg' %}" alt="Звезда">
+                            <img src="{% static 'main/images/star.svg' %}" alt="Звезда">
+                            <img src="{% static 'main/images/star.svg' %}" alt="Звезда">
+                            <img src="{% static 'main/images/star.svg' %}" alt="Звезда">
+                        </div>
+                        <p class="review-text">
+                            Все прошло отлично! Особенно порадовало внимание к деталям и комфортное окружение.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Отзыв 7 -->
+                <div class="review-card">
+                    <div class="avatar">
+                        <img src="{% static 'main/images/avatar7.svg' %}" alt="Аватар">
+                    </div>
+                    <div class="review-info">
+                        <div class="user-details">
+                            <span class="username">Bemma Szamek</span>
+                            <span class="review-date">3 месяца назад</span>
+                        </div>
+                        <div class="stars">
+                            <img src="{% static 'main/images/star.svg' %}" alt="Звезда">
+                            <img src="{% static 'main/images/star.svg' %}" alt="Звезда">
+                            <img src="{% static 'main/images/star.svg' %}" alt="Звезда">
+                            <img src="{% static 'main/images/star.svg' %}" alt="Звезда">
+                            <img src="{% static 'main/images/star.svg' %}" alt="Звезда">
+                        </div>
+                        <p class="review-text">
+                            Очен понравится клиника приду ещо
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Отзыв 8 -->
+                <div class="review-card">
+                    <div class="avatar">
+                        <img src="{% static 'main/images/avatar8.svg' %}" alt="Аватар">
+                    </div>
+                    <div class="review-info">
+                        <div class="user-details">
+                            <span class="username">S Ali</span>
+                            <span class="review-date">4 месяца назад</span>
+                        </div>
+                        <div class="stars">
+                            <img src="{% static 'main/images/star.svg' %}" alt="Звезда">
+                            <img src="{% static 'main/images/star.svg' %}" alt="Звезда">
+                            <img src="{% static 'main/images/star.svg' %}" alt="Звезда">
+                            <img src="{% static 'main/images/star.svg' %}" alt="Звезда">
+                            <img src="{% static 'main/images/star.svg' %}" alt="Звезда">
+                        </div>
+                        <p class="review-text">
+                            Светлана что за чудесный человек а не доктор
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Кнопка "Написать отзыв" -->
+                <div class="write-review-button">
+                    <button class="write-review">Написать отзыв</button>
+                </div>
+            </div>
+    </section>
+
+    <!-- Линия перед подвалом -->
+    <hr class="footer-divider">
+
+{% endblock %}

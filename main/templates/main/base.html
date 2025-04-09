@@ -1,0 +1,130 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Мой сайт{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
+</head>
+<body>
+
+<header class="header">
+    <div class="header__inner">
+        <a href="/" class="logo">
+            <img src="{% static 'main/images/logo.svg' %}" alt="MEDICINE" class="logo__img">
+        </a>
+
+        <nav class="nav">
+    <a class="nav__link" href="{% url 'about' %}">О нас</a>
+    <a class="nav__link" href="{% url 'clinics' %}">Клиники</a>
+    <a class="nav__link" href="{% url 'services_list' %}">Услуги</a>
+
+    {% if user.is_authenticated %}
+        <!-- Показываем для авторизованных пользователей -->
+        <a class="nav__link" href="{% url 'profile' %}">Личный кабинет</a>
+        <div class="auth-buttons">
+        <a href="home.html">
+            <form action="{% url 'logout' %}" method="post" class="logout-form">
+                {% csrf_token %}
+                <button type="submit" class="button button-logout">Выйти</button>
+            </form>
+            </a>
+        </div>
+    {% else %}
+        <!-- Показываем для неавторизованных пользователей -->
+        <div class="auth-buttons">
+            <a href="{% url 'login' %}" class="button button-login">Войти</a>
+            <a href="{% url 'register' %}" class="button button-register">Зарегистрироваться</a>
+        </div>
+    {% endif %}
+</nav>
+    </div>
+</header>
+
+<main>
+    {% block content %}
+    {% endblock %}
+</main>
+
+<footer class="footer">
+    <div class="footer-container">
+        <!-- Левая часть -->
+        <div class="footer-left">
+            <img src="{% static 'main/images/logo.svg' %}" alt="Private Medicine" class="footer-logo">
+            <p>
+                Добро пожаловать в Private Medicine Clinic, частный врач общей практики и медицинский центр с филиалами
+                по всей России. Наша миссия — предоставлять высококачественные, доступные медицинские услуги нашим
+                пациентам, предоставляемые командой опытных и сострадательных медицинских специалистов.
+            </p>
+
+            <!-- Плашка с сертификатом -->
+            <div class="certificate-section">
+                <img src="{% static 'main/images/cqc-logo.svg' %}" alt="Care Quality Commission">
+                <p>
+                    CQC regulates Khela Medical Limited to provide care at Private Medical Clinic<br>
+                    <strong>We haven't inspected this service yet</strong><br>
+                    <span style="color: green;">✓ We checked this service was likely to be safe, effective, caring, responsive and well-led during registration.</span>
+                </p>
+                <button class="certificate-button">See registration details</button>
+            </div>
+        </div>
+
+        <!-- Правая часть - колонки -->
+        <div class="footer-columns">
+            <!-- FAQ -->
+            <div class="footer-column">
+                <h3>Часто задаваемые вопросы</h3>
+                <a href="{% url 'about' %}">О нас</a>
+            </div>
+
+            <!-- Наши клиники -->
+            <div class="footer-column">
+                <h3>Наши клиники</h3>
+                <a href="{% url 'moscow' %}">Москва</a>
+                <a href="{% url 'chita' %}">Чита</a>
+                <a href="{% url 'samara' %}">Самара</a>
+                <a href="{% url 'sochi' %}">Сочи</a>
+                <a href="#">Новосибирск</a>
+                <a href="#">Екатеринбург</a>
+            </div>
+
+            <!-- Услуги -->
+            <div class="footer-column">
+                <h3>Наши услуги</h3>
+                <a href="#">Анализ крови</a>
+                <a href="#">Тест на ВИЧ</a>
+                <a href="#">Прививки</a>
+                <a href="#">Анализ сердечно-сосудистой системы</a>
+                <a href="#">Анализ Психического здоровья</a>
+                <a href="#">Анализ на гепатиты</a>
+                <a href="#">Анализ на вирусы</a>
+                <a href="#">Анализ на Аллергию</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Нижняя строка -->
+    <div class="footer-bottom">
+        <div class="copyright">
+            © Private Medicine Clinic 2025. All rights reserved.
+        </div>
+        <div class="links">
+            <a href="#">Web Design by Danila Gordeev</a>
+            <a href="#">Terms and Conditions</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Complaints Policy</a>
+        </div>
+        <div class="social-links">
+            <a href="#" src="{% static 'main/images/facebook.svg.svg' %}"><i class="fab fa-facebook"></i></a>
+            <a href="#" src="{% static 'main/images/instagram.svg.svg' %}"><i class="fab fa-instagram"></i></a>
+            <a href="#" src="{% static 'main/images/x.svg' %}"><i class="fab fa-twitter"></i></a>
+            <a href="#" src="{% static 'main/images/in.svg' %}"><i class="fab fa-linkedin"></i></a>
+        </div>
+    </div>
+</footer>
+<script>
+console.log('CSRF Cookie:', document.cookie.match(/csrftoken=([^;]+)/));
+</script>
+</body>
+</html>

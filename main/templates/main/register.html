@@ -1,0 +1,108 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Регистрация{% endblock %}
+
+{% block content %}
+<div class="auth-page">
+    <div class="auth-container">
+        <div class="auth-form-wrapper">
+            <div class="auth-header">
+                <img src="{% static 'main/images/logo.svg' %}" alt="Private Medicine Clinic" class="auth-logo">
+                <h1>Регистрация</h1>
+                <p>Создайте аккаунт для доступа к услугам</p>
+            </div>
+
+            <form method="post" class="auth-form">
+                {% csrf_token %}
+
+                {% if form.errors %}
+                <div class="alert-error">
+                    Пожалуйста, исправьте ошибки ниже.
+                </div>
+                {% endif %}
+
+                <div class="form-group">
+                    <label for="{{ form.username.id_for_label }}">Никнейм</label>
+                    {{ form.username }}
+                    {% if form.username.errors %}
+                        <div class="error-message">{{ form.username.errors }}</div>
+                    {% endif %}
+                    <small class="form-text">{{ form.username.help_text }}</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="{{ form.first_name.id_for_label }}">Имя</label>
+                    {{ form.first_name }}
+                    {% if form.first_name.errors %}
+                        <div class="error-message">{{ form.first_name.errors }}</div>
+                    {% endif %}
+                </div>
+
+                <div class="form-group">
+                    <label for="{{ form.last_name.id_for_label }}">Фамилия</label>
+                    {{ form.last_name }}
+                    {% if form.last_name.errors %}
+                        <div class="error-message">{{ form.last_name.errors }}</div>
+                    {% endif %}
+                </div>
+
+                <div class="form-group">
+                    <label for="{{ form.email.id_for_label }}">Email</label>
+                    {{ form.email }}
+                    {% if form.email.errors %}
+                        <div class="error-message">{{ form.email.errors }}</div>
+                    {% endif %}
+                </div>
+
+                <div class="form-group">
+                    <label for="{{ form.password1.id_for_label }}">Пароль</label>
+                    {{ form.password1 }}
+                    {% if form.password1.errors %}
+                        <div class="error-message">{{ form.password1.errors }}</div>
+                    {% endif %}
+                </div>
+
+                <div class="form-group">
+                    <label for="{{ form.password2.id_for_label }}">Подтвердите пароль</label>
+                    {{ form.password2 }}
+                    {% if form.password2.errors %}
+                        <div class="error-message">{{ form.password2.errors }}</div>
+                    {% endif %}
+                </div>
+
+                <button type="submit" class="btn-primary">Зарегистрироваться</button>
+            </form>
+
+            <div class="auth-footer">
+                Уже есть аккаунт? <a href="{% url 'login' %}">Войти</a>
+            </div>
+        </div>
+
+        <div class="auth-image">
+            <img src="{% static 'main/images/medical-bg.jpg' %}" alt="Медицинский фон">
+            <div class="auth-image-overlay">
+                <h3>Private Medicine Clinic</h3>
+                <p>Ваше здоровье - наш приоритет</p>
+            </div>
+        </div>
+    </div>
+</div>
+    <!-- ПАНЕЛЬ РЕЙТИНГ 5 ЗВЕЗД -->
+    <div class="rating-footer">
+        <div class="container">
+            <div class="rating-info compact-rating">
+                <span class="stars">
+                <img src="{% static 'main/images/star.svg' %}" alt="Звезда" class="star">
+                <img src="{% static 'main/images/star.svg' %}" alt="Звезда" class="star">
+                <img src="{% static 'main/images/star.svg' %}" alt="Звезда" class="star">
+                <img src="{% static 'main/images/star.svg' %}" alt="Звезда" class="star">
+                <img src="{% static 'main/images/star.svg' %}" alt="Звезда" class="star">
+            </span>
+                <span class="rating-text">5</span>
+                <span class="rating-stars-text">звезд</span>
+                <img src="{% static 'main/images/doctify.svg' %}" alt="Doctify" class="doctify-logo">
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="service-detail">
+    <div class="service-header">
+        {% if service.image %}
+        <div class="service-image">
+            <img src="{{ service.image.url }}" alt="{{ service.title }}">
+        </div>
+        {% endif %}
+        <div class="service-title">
+            <h1>{{ service.title }}</h1>
+            <div class="service-meta">
+                <span class="price">{{ service.price }} ₽</span>
+                <span class="duration">{{ service.duration }}</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="service-content">
+        <div class="service-description">
+            <h2>Описание услуги</h2>
+            <p>{{ service.full_description }}</p>
+        </div>
+
+        {% if service.advantages %}
+        <div class="service-advantages">
+            <h2>Преимущества</h2>
+            <ul>
+                {% for advantage in service.get_advantages_list %}
+                <li>{{ advantage }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+
+        <a href="{% url 'services_list' %}" class="back-btn">← Вернуться к списку услуг</a>
+    </div>
+</div>
+{% endblock %}
